@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<WebMap>
+  <Layers>
+    <Layer ID="LJ_Image" SourceType="GeoStar" ServiceType="WMTSLayer">
+      <Title>村镇影像地图</Title>
+      <Url>http://192.168.1.182:9010/CNCZDT_WMTS/wmts?</Url>
+      <Levels>11,12,13,14,15,16,17</Levels>
+      <ImageFormat>png</ImageFormat>
+      <Epsg>4490</Epsg>
+      <Extent>116.23,23.03,116.63,23.31</Extent>
+    </Layer>
+  </Layers>
+  <Tasks>
+    <Task ID="sg_dmdz" SourceType="GeoStar" ServiceType="QueryTask">
+      <Url>http://192.168.1.182:9010/POI_PUB_440232/wfs?TypeName=POI_PUB_440232</Url>
+      <Epsg>4610</Epsg>
+      <PageSize>10</PageSize>
+      <!--分页大小-->
+      <Field>NAME</Field>
+    </Task>
+    <Task ID="XZJX" SourceType="GeoStar" ServiceType="FindTask">
+      <Url>http://192.168.1.182:9010/CNCZDT/wfs?TypeName=CNCZ_PT</Url>
+      <Epsg>4610</Epsg>
+      <PageSize>10000</PageSize>
+      <!--分页大小-->
+      <Field>ParrentID</Field>
+    </Task>
+    <Task ID="classceshi" SourceType="GeoStar" ServiceType="ClassTask">
+      <Url>http://192.168.1.182:9010/POI_PUB_440232/wfs?TypeName=POI_PUB_440232</Url>
+      <Epsg>4610</Epsg>
+      <Path>http://localhost/CNCZDT/CNCZDT/ClientBin/cls.xml</Path>
+      <PageSize>10</PageSize>
+      <Field>CODE</Field>
+    </Task>
+  </Tasks>
+  <MapType>
+  </MapType>
+  <MapList>
+  </MapList>
+  <StartExtent Xmax="116.63" Xmin="116.23" Ymax="23.31" Ymin="23.03"/>
+</WebMap>
